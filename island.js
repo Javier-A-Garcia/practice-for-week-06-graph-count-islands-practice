@@ -1,24 +1,64 @@
 function getNeighbors(row, col, matrix) {
-  
+
+  let neighbors = [];
   // Check top
+  if (row > 0) {
+    if (matrix[row - 1][col] === 1){
+      neighbors.push([row - 1, col]);
+    }
+  }
   // Check top right
+  if (row > 0 && col < matrix[0].length - 1) {
+    if (matrix[row - 1][col + 1] === 1){
+      neighbors.push([row - 1, col + 1]);
+    }
+  }
   // Check right
+  if (col < matrix[0].length - 1) {
+    if (matrix[row][col + 1] === 1) {
+      neighbors.push([row, col + 1]);
+    }
+  }
   // Check bottom right
+  if (col < matrix[0].length - 1 && row < matrix.length - 1) {
+    if (matrix[row + 1][col + 1] === 1) {
+      neighbors.push([row + 1, col + 1]);
+    }
+  }
   // Check bottom
+  if (row < matrix.length - 1) {
+    if (matrix[row + 1][col] === 1) {
+      neighbors.push([row + 1, col]);
+    }
+  }
   // Check bottom left
+  if (row < matrix.length - 1 && col > 0) {
+    if (matrix[row + 1][col - 1] === 1) {
+      neighbors.push([row + 1, col - 1]);
+    }
+  }
   // Check left
+  if (col > 0) {
+    if (matrix[row][col - 1] === 1) {
+      neighbors.push([row, col - 1]);
+    }
+  }
   // Check top left
+  if (col > 0 && row > 0) {
+    if (matrix[row - 1][col - 1] === 1) {
+      neighbors.push([row - 1, col - 1]);
+    }
+  }
   // Return neighbors
-  
-  // Your code here
+  return neighbors;
 }
 
 function countIslands(matrix) {
-  
+
   // Create a visited set to store visited nodes
   // Initialize count to 0
   // Iterate through all indices in matrix
-    // If an index contains a 1 and has not been visited, 
+    // If an index contains a 1 and has not been visited,
     // increment island count and start traversing neighbors
       // DO THE THING (increment island count by 1)
       // Initialize a stack with current index
@@ -31,7 +71,7 @@ function countIslands(matrix) {
             // Add neighbor to stack
             // Mark neighbor as visited
   // Return island count
-  
+
   // Your code here
 }
 
